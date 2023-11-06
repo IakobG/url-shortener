@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShortUrl</title>
+</head>
+<body>
+
+    <form action="/short" method="POST">
+        <input type="url" name="url" placeholder="Url" required>
+        <button type="submit" id="s-btn">Shorten!</button>
+    </form>
+    <hr>
+    <section>
+        <% urls.forEach(url => { %>
+            <div>
+                <label for="fullUrl">URL:</label>
+                <a href="<%= url.url %>" class="fullUrl" id="fullUrl"><%=url.url%></a>
+                <label for="shortUrl">Short URL:</label>
+                <a href="<%= url.short %>" class="shortUrl" id="shortUrl"><%=url.short%></a>
+                <label for="urlClicked">Click Count:</label>
+                <span class="urlClicked" id="urlClicked"><%=url.clicked%></span>
+            </div>
+            <hr>
+        <% }) %>
+    </section>
+</body>
+</html>
